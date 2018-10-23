@@ -1,3 +1,13 @@
+/*===================================================================
+* FILENAME :  ConvertImages.cpp
+* Copyright(C)   2017-2018  Jenoptik Industrial Metrology Germany GMbh
+* DESCRIPTION :
+*       This software Converts the Bitmap reference Images  to Png format
+* AUTHOR :    Subhasis Pradhan        START DATE :    01.04.2018
+* CHANGES :
+*	First release : 01.14.2018
+*
+===========================================================================*/
 #define _AFXDLL
 #include <afx.h>
 
@@ -195,10 +205,12 @@ int _tmain(int argc, wchar_t* argv[])
 				//std::wcout << DirectoryName << '\n';
 
 
-				size_t pos = filename.find_first_of(L"_");
+				//size_t pos = filename.find_first_of(L"_");
+				size_t pos = filename.find_last_of(L"_");
 				if (pos != string::npos)
 				{
-					pos = filename.find_first_of(L"_", pos + 1);
+					//pos = filename.find_first_of(L"_", pos + 1);
+					pos = filename.find_last_of(L"_", pos - 1);
 					if (pos != string::npos)
 					{
 						wstring prefix = filename.substr(0, pos);
